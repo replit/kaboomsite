@@ -82,6 +82,7 @@ export default function Doc() {
 				return scene
 			},
 		}], {
+			// @ts-ignore
 			canvas: canvasRef.current,
 			scale: 0.8,
 			dev: true,

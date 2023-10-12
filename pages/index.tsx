@@ -9,9 +9,9 @@ import Markdown from "comps/Markdown"
 import Drawer from "comps/Drawer"
 import Doc from "comps/Doc"
 import useMediaQuery from "hooks/useMediaQuery"
-import doc from "doc.json"
 // @ts-ignore
 import fun from "lib/fun"
+import doc from "doc.json"
 
 const flashy = keyframes(`
 	0% {
@@ -94,6 +94,7 @@ Play with it yourself or check out the examples in the [Playground](/play)!
 			<View stretchX gap={1} key={sec.name}>
 				<Text size="huge" color={3} id={sec.name}>{sec.name}</Text>
 				{ sec.doc &&
+					// @ts-ignore
 					<Markdown src={sec.doc} dim />
 				}
 				<View stretchX gap={3}>

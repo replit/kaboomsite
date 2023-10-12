@@ -1,5 +1,7 @@
 {
 	"extends": "next/core-web-vitals",
+	"ignorePatterns": ["kaboom"],
+	"plugins": ["@typescript-eslint"],
 	"rules": {
 		"@typescript-eslint/no-unused-vars": "warn"
 	}
