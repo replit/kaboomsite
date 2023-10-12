@@ -1,7 +1,8 @@
 {
+	"type": "module",
 	"scripts": {
-		"dev": "next dev",
-		"build": "next build",
+		"dev": "node buildDoc.js && next dev",
+		"build": "node buildDoc.js && next build",
 		"start": "next start",
 		"lint": "next lint",
 		"fmt": "eslint --fix pages lib comps cm",
