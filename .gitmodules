@@ -1,0 +1,3 @@
+[submodule "kaboom"]
+	path = kaboom
+	url = https://github.com/replit/kaboom
