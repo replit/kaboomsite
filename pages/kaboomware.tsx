@@ -91,7 +91,7 @@ export default function Doc() {
 	return (
 		<View
 			align="center"
-			gap={4}
+			gap={5}
 			padX={3}
 			stretch
 			css={{
@@ -116,6 +116,7 @@ export default function Doc() {
 				}}
 			/>
 			<Text size="big" align="center">KaboomWare is a mini-game engine + event based on Kaboom, inspired by the great WarioWare series.</Text>
+			<video src="/static/img/kaboomware/demo.mp4" autoPlay loop muted width="640" css={{ borderRadius: 8 }} />
 			<View
 				dir="row"
 				gap={4}
@@ -130,14 +131,6 @@ export default function Doc() {
 					<Text color={3}>Ken (alien), KaboomWare operation lead</Text>
 				</View>
 			</View>
-			<View dir="row" gap={2} align="center">
-				<Text>There will be a monthly KaboomWare game jam, where you make as many KaboomWare mini-games as possible! (they have to be fun tho)</Text>
-				<img src="/static/img/kaboomware/cal.png" />
-			</View>
-			<Button padX={1} padY={1} action={() => window.open("https://replit.com/@replit/KaboomWare?v=1")}>
-				<img src="/static/img/replit.png" css={{ width: 32 }} />
-				<Text>Code on Replit!</Text>
-			</Button>
 			<View align="center" gap={2}>
 				<img src="/static/img/kaboomware/engine.png" />
 				<View pad={2} bg={2} rounded outlined>
@@ -155,7 +148,6 @@ export default function Doc() {
 			<Text color={2}>Here is an example mini-game!</Text>
 			<Markdown src={example} />
 			<Text>For more examples, see <a href="https://github.com/slmjkdbtl/kaboomware/tree/master/example/games">here</a></Text>
-			<canvas ref={canvasRef} css={{ borderRadius: 8 }} />
 		</View>
 	)
 }
