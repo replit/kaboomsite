@@ -32,7 +32,7 @@ const wrapGame = (code: string) => `
 </head>
 <body>
 	<script src="https://unpkg.com/kaboom/dist/kaboom.js"></script>
-	<script>
+	<script type="module">
 ${code}
 	</script>
 </body>
