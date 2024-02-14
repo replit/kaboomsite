@@ -26,7 +26,7 @@ const Blog: React.FC<BlogProps> = ({
 }) => {
 	return (
 		<Nav>
-			<Head title="Kaboom Blog" />
+			<Head title="Kaboom.js Blog" />
 			<Text size="huge" bold>Blog</Text>
 			<View gap={4}>
 				{blogs.map((blog) => (

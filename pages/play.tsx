@@ -185,7 +185,7 @@ const Play: React.FC<PlayProps> = ({
 
 	return <>
 		<Head
-			title="Kaboom Playground"
+			title="Kaboom.js Playground"
 			scale={0.6}
 			twitterPlayer={{
 				url: `https://kaboomjs.com/example/${example}`,

@@ -351,7 +351,7 @@ const Play: React.FC = () => {
 
 	return <>
 		<Head
-			title="Kaboom Draw"
+			title="Kaboom.js Draw"
 			scale={0.6}
 		/>
 		<Background dir="column" css={{ overflow: "hidden" }}>

@@ -37,25 +37,10 @@ const Logo: React.FC = () => (
 			}}
 		>
 			<img
-				src="/static/img/boom.svg"
-				alt="boom"
+				src="/static/img/kaboomjs.png"
+				alt="kaboomjs"
 				css={{
-					position: "relative",
-					width: "80%",
-					left: "10%",
-					animation: `${popping} 5s infinite`,
-				}}
-			/>
-			<img
-				src="/static/img/ka.svg"
-				alt="ka"
-				css={{
-					width: "90%",
-					position: "absolute",
-					left: "2px",
-					top: "28px",
-					animation: `${popping} 5s infinite`,
-					animationDelay: "0.08s",
+					width: "100%",
 				}}
 			/>
 		</View>

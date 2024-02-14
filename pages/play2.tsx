@@ -26,7 +26,7 @@ const Play: React.FC<PlayProps> = ({
 	const isNarrow = useMediaQuery("(max-aspect-ratio: 1/1)")
 
 	return <>
-		<Head title="Kaboom Playground" scale={0.6} />
+		<Head title="Kaboom.js Playground" scale={0.6} />
 		<View stretch pad={1} dir="column" css={{ overflow: "hidden" }}>
 			<View
 				dir="row"
