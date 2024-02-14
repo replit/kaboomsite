@@ -462,7 +462,7 @@ Blockly.Blocks["kaboom_anchor"] = {
 				[ "botleft", "botleft" ],
 				[ "bot", "bot" ],
 				[ "botright", "botright" ],
-			]), "ANCHOR")
+			]) as Blockly.Field, "ANCHOR")
 		this.setColour(colors.component)
 		this.setOutput(true, "Object")
 		this.setTooltip("Component to set anchor point")
@@ -883,13 +883,13 @@ Blockly.Blocks["kaboom_onKey"] = {
 		this.appendDummyInput()
 			.appendField(icon("key"))
 			.appendField("when key")
-			.appendField(new Blockly.FieldDropdown(KEYS.map((k) => [k, k])), "KEY")
+			.appendField(new Blockly.FieldDropdown(KEYS.map((k) => [k, k])) as Blockly.Field, "KEY")
 			.appendField("is")
 			.appendField(new Blockly.FieldDropdown([
 				[ "pressed", "onKeyPress" ],
 				[ "held down", "onKeyDown" ],
 				[ "released", "onKeyRelease" ],
-			]), "EVENT")
+			]) as Blockly.Field, "EVENT")
 		this.appendStatementInput("ACTION")
 		this.setColour(colors.event)
 		this.setTooltip(() => `Run something when a key is ${this.getField("EVENT")?.getText()}`)
@@ -913,7 +913,7 @@ Blockly.Blocks["kaboom_onMouse"] = {
 				[ "pressed", "onMousePress" ],
 				[ "held down", "onMouseDown" ],
 				[ "released", "onMouseRelease" ],
-			]), "EVENT")
+			]) as Blockly.Field, "EVENT")
 		this.appendStatementInput("ACTION")
 		this.setColour(colors.event)
 		this.setTooltip(() => `Run something when mouse is ${this.getField("EVENT")?.getText()}`)
@@ -938,7 +938,7 @@ Blockly.Blocks["kaboom_onObj"] = {
 				[ "hovered", "onHover" ],
 				[ "grounded", "onGround" ],
 				[ "destroy", "onDestroy" ],
-			]), "EVENT")
+			]) as Blockly.Field, "EVENT")
 		this.appendStatementInput("ACTION")
 		this.setColour(colors.event)
 		this.setTooltip(() => `Run something when object is ${this.getField("EVENT")?.getText()}`)
