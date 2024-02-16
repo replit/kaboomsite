@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { keyframes } from "@emotion/react"
+import { Info } from "react-feather"
 
 import useMediaQuery from "hooks/useMediaQuery"
 import useClickOutside from "hooks/useClickOutside"
@@ -146,7 +147,11 @@ const IndexContent: React.FC<IndexContentProps> = ({
 				overflowY: "auto",
 			}}
 		>
-			<View />
+			<View css={{ cursor: "pointer" }}>
+				<Info size={20} color="var(--color-fg3)" onClick={() => {
+					alert("The kaboom.js mark is not affiliated with Activision Publishing, Inc. or the KABOOM! trademark owned by Activision")
+				}} />
+			</View>
 			<Logo />
 			<ThemeSwitch width={160} />
 			<View gap={0.5}>
