@@ -5,6 +5,9 @@ This is the kaboom website, it's written in nextjs.
 ## Developing
 
 ```sh
+$ git submodule init
+$ git submodule update
+$ npm install
 $ npm run dev
 ```
 
