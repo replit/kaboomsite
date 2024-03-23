@@ -23,7 +23,7 @@ interface DocProps {
 const Doc: React.FC<DocProps> = ({
 	src,
 	name,
-	tutorials
+	tutorials,
 }) => {
 	const doc = useMemo(() => matter(src), [src])
 
@@ -34,7 +34,7 @@ const Doc: React.FC<DocProps> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const tutorials = [];
+	const tutorials = []
 
 	for await (const tutorialEntry of await fs.readdir("public/static/doc")) {
 		if (!tutorialEntry.endsWith("md")) continue
@@ -48,8 +48,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 	}
 
 	tutorials.sort((a, b) => {
-		const aName = a.link.substring(4);
-		const bName = b.link.substring(4);
+		const aName = a.link.substring(4)
+		const bName = b.link.substring(4)
 
 		const aIndex = tutorialOrder.indexOf(aName)
 		const bIndex = tutorialOrder.indexOf(bName)

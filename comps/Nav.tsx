@@ -121,15 +121,15 @@ const IndexContentSection: React.FC<React.PropsWithChildren<{
 	sectionName: string;
 }>> = ({
 	children,
-	sectionName
+	sectionName,
 }) => (
-		<View stretchX gap={1} key={sectionName}>
-			<Text size="big" color={3}>{sectionName}</Text>
-			<View>
-				{children}
-			</View>
+	<View stretchX gap={1} key={sectionName}>
+		<Text size="big" color={3}>{sectionName}</Text>
+		<View>
+			{children}
 		</View>
-	)
+	</View>
+)
 
 const IndexContentItem: React.FC<{
 	title: string;
@@ -151,7 +151,7 @@ const IndexContentItem: React.FC<{
 			<Text color={2} code>{title}</Text>
 		</View>
 	</a>
-);
+)
 
 
 type SectionTuple = [string, string[]]
