@@ -1,5 +1,8 @@
 {
-	"extends": "next/core-web-vitals",
+	"extends": [
+		"next/core-web-vitals",
+		"./kaboom/.eslintrc.json"
+	],
 	"ignorePatterns": ["kaboom"],
 	"plugins": ["@typescript-eslint"],
 	"rules": {
