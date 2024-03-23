@@ -5,7 +5,7 @@
 		"build": "node buildDoc.js && next build",
 		"start": "next start",
 		"lint": "next lint",
-		"fmt": "eslint --fix pages lib comps cm",
+		"fmt": "eslint --fix pages lib comps",
 		"check": "tsc --noEmit"
 	},
 	"dependencies": {
@@ -35,6 +35,8 @@
 		"@types/node": "^20.11.17",
 		"@types/pako": "^2.0.3",
 		"@types/react": "^18.2.55",
+		"@typescript-eslint/eslint-plugin": "^5.0.0",
+		"@typescript-eslint/parser": "^5.0.0",
 		"eslint": "^8.56.0",
 		"eslint-config-next": "^14.1.0",
 		"typescript": "^5.3.3"
