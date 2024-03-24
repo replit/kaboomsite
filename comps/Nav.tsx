@@ -1,22 +1,16 @@
 import * as React from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { keyframes } from "@emotion/react"
 import { Info } from "react-feather"
-import fs from "fs/promises"
 import useMediaQuery from "hooks/useMediaQuery"
-import useClickOutside from "hooks/useClickOutside"
 import useUpdateEffect from "hooks/useUpdateEffect"
 import Background from "comps/Background"
 import View from "comps/View"
 import Text from "comps/Text"
-import Markdown from "comps/Markdown"
-import matter from "gray-matter"
 import Input from "comps/Input"
 import Drawer from "comps/Drawer"
 import ThemeSwitch from "comps/ThemeSwitch"
 import doc from "doc.json"
-import { GetServerSideProps } from "next"
 
 const popping = keyframes(`
 	0% {
@@ -123,36 +117,32 @@ const IndexContentSection: React.FC<React.PropsWithChildren<{
 	children,
 	sectionName,
 }) => (
-	<View stretchX gap={1} key={sectionName}>
-		<Text size="big" color={3}>{sectionName}</Text>
-		<View>
-			{children}
+		<View stretchX gap={1} key={sectionName}>
+			<Text size="big" color={3}>{sectionName}</Text>
+			<View>
+				{children}
+			</View>
 		</View>
-	</View>
-)
+	)
 
 const IndexContentItem: React.FC<{
 	title: string;
-	link: string;
 	shrink: () => void;
-}> = ({ title, shrink, link }) => (
-	<a href={`/${link}`}>
-		<View
-			padY={0.5}
-			onClick={shrink}
-			css={{
-				cursor: "pointer",
-				borderRadius: 8,
-				":hover": {
-					background: "var(--color-bg3)",
-				},
-			}}
-		>
-			<Text color={2} code>{title}</Text>
-		</View>
-	</a>
+}> = ({ title, shrink }) => (
+	<View
+		padY={0.5}
+		onClick={shrink}
+		css={{
+			cursor: "pointer",
+			borderRadius: 8,
+			":hover": {
+				background: "var(--color-bg3)",
+			},
+		}}
+	>
+		<Text color={2} code>{title}</Text>
+	</View>
 )
-
 
 type SectionTuple = [string, string[]]
 
@@ -225,12 +215,14 @@ const IndexContent: React.FC<IndexContentProps> = ({
 								const isFunc = mem.kind === "MethodSignature" || mem.kind === "FunctionDeclaration"
 
 								return (
-									<IndexContentItem
-										key={name}
-										title={`${name}${isFunc ? "()" : ""}`}
-										link={`#${name}`}
-										shrink={shrink}
-									/>
+
+									<a href={`/#${name}`} key={name}>
+										<IndexContentItem
+											title={`${name}${isFunc ? "()" : ""}`}
+											shrink={shrink}
+										/>
+									</a>
+
 								)
 							})}
 						</IndexContentSection>
@@ -241,12 +233,14 @@ const IndexContent: React.FC<IndexContentProps> = ({
 			{content == "tutorial" && (
 				<IndexContentSection sectionName={"Tutorials"}>
 					{contentItems?.filter(tutorial => query ? tutorial.title.match(new RegExp(query, "i")) : true).map((tutorial) => (
-						<IndexContentItem
-							key={tutorial.title}
-							title={tutorial.title}
-							link={tutorial.link}
-							shrink={shrink}
-						/>
+
+						<Link href={`/${tutorial.link}`} key={tutorial.title}>
+							<IndexContentItem
+								title={tutorial.title}
+								shrink={shrink}
+							/>
+						</Link>
+
 					))}
 				</IndexContentSection>
 			)}
