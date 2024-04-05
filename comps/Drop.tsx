@@ -188,4 +188,6 @@ const Drop = React.forwardRef<HTMLDivElement, ViewPropsAnd<DropProps>>(({
 
 })
 
+Drop.displayName = "DropName"
+
 export default Drop

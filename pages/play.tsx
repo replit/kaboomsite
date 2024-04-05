@@ -28,6 +28,7 @@ import download from "lib/download"
 import wrapHTML from "lib/wrapHTML"
 import { getFirstQueries } from "lib/utils"
 import EXAMPLES_CFG from "./../kaboom/examples/examples.json"
+import Image from "next/image"
 
 const DEFAULT_EXAMPLE = "add"
 
@@ -63,6 +64,8 @@ const SpriteEntry: React.FC<SpriteEntryProps> = ({
 			<img
 				src={src}
 				alt={name}
+				width={48}
+				height={48}
 				css={{
 					userDrag: "none",
 					width: "100%",
@@ -208,10 +211,13 @@ const Play: React.FC<PlayProps> = ({
 						desc="Back to home"
 					>
 						<Link href="/">
+							{/* This is the logo in pixel art, Next/Image doesn't support pixel art */}
 							<img
 								src="/static/img/k.png"
+								width={48}
+								height={48}
 								css={{
-									width: 48,
+									width: "auto",
 									cursor: "pointer",
 								}}
 								alt="logo"

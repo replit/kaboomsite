@@ -172,4 +172,6 @@ const View = React.forwardRef<HTMLDivElement, Props>(({
 
 })
 
+View.displayName = "View"
+
 export default View

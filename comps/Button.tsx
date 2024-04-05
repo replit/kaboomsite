@@ -1,4 +1,3 @@
-import { ReactNode } from "react"
 import View, { ViewProps } from "comps/View"
 import Text from "comps/Text"
 

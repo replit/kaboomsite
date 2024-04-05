@@ -29,6 +29,7 @@ const Head: React.FC<HeadProps> = ({
 	twitterPlayer,
 }) => (
 	<NextHead>
+		<html lang="en" />
 		<title>{title ?? DEF_TITLE}</title>
 		<link rel="icon" href={icon ?? DEF_ICON} />
 		<meta name="description" content={desc ?? DEF_DESC} />
@@ -38,6 +39,7 @@ const Head: React.FC<HeadProps> = ({
 		<meta name="twitter:description" content={desc ?? DEF_DESC} />
 		<meta name="twitter:image" content={img ?? DEF_IMG} />
 		<meta name="twitter:site" content="@kaboomjs" />
+		<link rel="canonical" href="https://kaboomjs.com/" />
 		{ twitterPlayer && <>
 			<meta name="twitter:player" content={twitterPlayer.url} />
 			<meta name="twitter:player:width" content={`${twitterPlayer.width}`} />

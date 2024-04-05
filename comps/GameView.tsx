@@ -2,7 +2,6 @@ import * as React from "react"
 import { cssVars } from "lib/ui"
 import View, { ViewProps } from "comps/View"
 import Ctx from "lib/Ctx"
-import { themes } from "lib/ui"
 import useUpdateEffect from "hooks/useUpdateEffect"
 
 export interface GameViewRef {
@@ -98,5 +97,7 @@ const GameView = React.forwardRef<GameViewRef, GameViewProps & ViewProps>(({
 	)
 
 })
+
+GameView.displayName = "GameView"
 
 export default GameView

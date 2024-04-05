@@ -15,13 +15,13 @@ export interface BlocklyEditorRef {
 }
 
 // https://developers.google.com/blockly/guides/configure/web/events
-type WorkspaceEvent = {
-	type: string
-	isUiEvent: boolean
-	workspaceId: string
-	blockId: string
-	group: string
-}
+// type WorkspaceEvent = {
+// 	type: string
+// 	isUiEvent: boolean
+// 	workspaceId: string
+// 	blockId: string
+// 	group: string
+// }
 
 const SAVE_EVENTS = new Set([
 	Blockly.Events.BLOCK_CHANGE,
@@ -431,5 +431,7 @@ const BlocklyEditor = forwardRef<BlocklyEditorRef>(({...props}, ref) => {
 	)
 
 })
+
+BlocklyEditor.displayName = "BlocklyEditor"
 
 export default BlocklyEditor

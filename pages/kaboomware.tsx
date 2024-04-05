@@ -110,6 +110,7 @@ export default function Doc() {
 			/>
 			<img
 				src="/static/img/kaboomware/logo.png"
+				alt="KaboomWare"
 				css={{
 					width: 480,
 					maxWidth: "100%",
@@ -123,7 +124,9 @@ export default function Doc() {
 				align="center"
 				width="100%"
 			>
-				<img src="/static/img/kaboomware/ken.png" css={{ width: 160 }} />
+				<img src="/static/img/kaboomware/ken.png" css={{ width: 160 }} 
+					alt="Ken" 
+				/>
 				<View gap={2} dir="column" stretchY justify="between" css={{ flex: 1 }}>
 					<View bg="#ffffff" pad={2} rounded css={bubble}>
 						<Text color="#000000">You must supply 200 minigames by the end of 2023, or we have to destroy your planet.</Text>
@@ -132,7 +135,7 @@ export default function Doc() {
 				</View>
 			</View>
 			<View align="center" gap={2}>
-				<img src="/static/img/kaboomware/engine.png" />
+				<img src="/static/img/kaboomware/engine.png" alt="Engine" />
 				<View pad={2} bg={2} rounded outlined>
 					<Text>KaboomWare is based on <Link href="/">Kaboom</Link>, if you&apos;re not familiar with Kaboom start with <Link href="/doc/intro">this tutorial</Link>!</Text>
 				</View>

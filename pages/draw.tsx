@@ -238,6 +238,7 @@ const ShapeEntry: React.FC<ShapeEntryProps> = ({ img, code, onDragStart }) => (
 	>
 		<img
 			src={img}
+			alt="shape"
 			css={{
 				userDrag: "none",
 				height: "100%",
