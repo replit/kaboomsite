@@ -10,19 +10,15 @@ import Drawer from "comps/Drawer"
 import Head from "comps/Head"
 
 export interface ReferenceProps {
-    refName: string
+    docEntries: string[]
 }
 
 const Reference: React.FC<ReferenceProps> = ({
-    refName,
+    docEntries,
 }) => {
     const [showType, setShowType] = React.useState<string | null>(null)
     const isNarrow = useMediaQuery(`(max-width: ${NARROW}px)`)
     const kaboomFuncTypes: { [key: string]: any } = doc.types.KaboomCtx[0].members;
-
-    const docEntries = Object.keys(kaboomFuncTypes).filter(
-        (name) => name.toLowerCase() === refName.toLowerCase(),
-    );
 
     const docDefaultEntry = kaboomFuncTypes[docEntries[0]][0];
 
@@ -69,14 +65,23 @@ const Reference: React.FC<ReferenceProps> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const { name } = ctx.query
+    const { name: refName } = ctx.query
+
+    if(!(typeof refName == "string")) return { notFound: true }
+
+    const kaboomFuncTypes: { [key: string]: any } = doc.types.KaboomCtx[0].members;
+
+	const docEntries = Object.keys(kaboomFuncTypes).filter(
+		(name) => name.toLowerCase() === refName.toLowerCase(),
+	)
+
+	if(docEntries.length === 0) return { notFound: true }
 
     return {
         props: {
-            refName: name,
+            docEntries
         },
     }
-
 }
 
 export default Reference

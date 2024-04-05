@@ -10,19 +10,15 @@ import Drawer from "comps/Drawer"
 import Head from "comps/Head"
 
 export interface ReferenceProps {
-	refName: string
+	docEntries: string[]
 }
 
 const Reference: React.FC<ReferenceProps> = ({
-	refName,
+	docEntries,
 }) => {
 	const [showType, setShowType] = React.useState<string | null>(null)
 	const isNarrow = useMediaQuery(`(max-width: ${NARROW}px)`)
 	const types: { [key: string]: any } = doc.types
-
-	const docEntries = Object.keys(types).filter(
-		(name) => name.toLowerCase() === refName.toLowerCase(),
-	)
 
 	const docDefaultEntry = types[docEntries[0]][0]
 	
@@ -32,9 +28,7 @@ const Reference: React.FC<ReferenceProps> = ({
 				title={`Kaboom.js - ${docEntries[0]}`}
 				desc={docDefaultEntry?.jsDoc?.doc ?? "No description"}
 			/>
-			{Object.keys(doc.types).filter(
-				(name) => name.toLowerCase() === refName.toLowerCase(),
-			).map((name) => (
+			{docEntries.map((name) => (
 				<View stretchX gap={3} pad={0} key={name}>
 					<Doc
 						id={name}
@@ -70,14 +64,22 @@ const Reference: React.FC<ReferenceProps> = ({
 }
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-	const { name } = ctx.query
+	const { name: refName } = ctx.query
+	const types: { [key: string]: any } = doc.types
+
+	if(!(typeof refName == "string")) return { notFound: true }
+
+	const docEntries = Object.keys(types).filter(
+		(name) => name.toLowerCase() === refName.toLowerCase(),
+	)
+
+	if(docEntries.length === 0) return { notFound: true }
 
 	return {
 		props: {
-			refName: name,
+			docEntries,
 		},
 	}
-
 }
 
 export default Reference
