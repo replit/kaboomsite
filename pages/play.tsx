@@ -28,7 +28,6 @@ import download from "lib/download"
 import wrapHTML from "lib/wrapHTML"
 import { getFirstQueries } from "lib/utils"
 import EXAMPLES_CFG from "./../kaboom/examples/examples.json"
-import Image from "next/image"
 
 const DEFAULT_EXAMPLE = "add"
 

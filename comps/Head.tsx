@@ -29,7 +29,6 @@ const Head: React.FC<HeadProps> = ({
 	twitterPlayer,
 }) => (
 	<NextHead>
-		<html lang="en" />
 		<title>{title ?? DEF_TITLE}</title>
 		<link rel="icon" href={icon ?? DEF_ICON} />
 		<meta name="description" content={desc ?? DEF_DESC} />
