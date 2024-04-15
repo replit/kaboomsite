@@ -252,7 +252,9 @@ const imgViewPlugin = ViewPlugin.define<ViewState>((view) => {
 
 })
 
-export default [
+const exported = [
 	imgTheme,
 	imgViewPlugin,
 ]
+
+export default exported

@@ -557,4 +557,6 @@ const Editor = React.forwardRef<EditorRef, ViewPropsAnd<EditorProps>>(({
 	)
 })
 
+Editor.displayName = "Editor"
+
 export default Editor

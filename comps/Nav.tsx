@@ -1,6 +1,5 @@
 import * as React from "react"
 import Link from "next/link"
-import { keyframes } from "@emotion/react"
 import { Info } from "react-feather"
 import useMediaQuery from "hooks/useMediaQuery"
 import useUpdateEffect from "hooks/useUpdateEffect"
@@ -11,18 +10,19 @@ import Input from "comps/Input"
 import Drawer from "comps/Drawer"
 import ThemeSwitch from "comps/ThemeSwitch"
 import doc from "doc.json"
+// import { keyframes } from "@emotion/react"
 
-const popping = keyframes(`
-	0% {
-		transform: scale(1);
-	}
-	5% {
-		transform: scale(1.1);
-	}
-	10% {
-		transform: scale(1);
-	}
-`)
+// const popping = keyframes(`
+// 	0% {
+// 		transform: scale(1);
+// 	}
+// 	5% {
+// 		transform: scale(1.1);
+// 	}
+// 	10% {
+// 		transform: scale(1);
+// 	}
+// `)
 
 const Logo: React.FC = () => (
 	<Link href="/">
@@ -38,6 +38,7 @@ const Logo: React.FC = () => (
 				alt="kaboomjs"
 				css={{
 					width: "100%",
+					height: "auto",
 				}}
 			/>
 		</View>
@@ -53,7 +54,9 @@ const NavLink: React.FC<NavLinkProps> = ({
 	text,
 	link,
 }) => (
-	<Link href={link}>
+	<Link href={link} css={{
+		width: "100%",
+	}}>
 		<View
 			focusable
 			padX={1}
@@ -117,13 +120,13 @@ const IndexContentSection: React.FC<React.PropsWithChildren<{
 	children,
 	sectionName,
 }) => (
-		<View stretchX gap={1} key={sectionName}>
-			<Text size="big" color={3}>{sectionName}</Text>
-			<View>
-				{children}
-			</View>
+	<View stretchX gap={1} key={sectionName}>
+		<Text size="big" color={3}>{sectionName}</Text>
+		<View stretchX>
+			{children}
 		</View>
-	)
+	</View>
+)
 
 const IndexContentItem: React.FC<{
 	title: string;
@@ -190,7 +193,7 @@ const IndexContent: React.FC<IndexContentProps> = ({
 			</View>
 			<Logo />
 			<ThemeSwitch width={160} />
-			<View gap={0.5}>
+			<View gap={0.5} stretchX>
 				<NavLink link="/play" text="Playground" />
 				<NavLink link="/doc/setup" text="Tutorials" />
 				<NavLink link="/blog" text="Blog" />
@@ -216,7 +219,9 @@ const IndexContent: React.FC<IndexContentProps> = ({
 
 								return (
 
-									<a href={`/#${name}`} key={name}>
+									<a href={`/#${name}`} key={name} css={{
+										width: "100%",
+									}}>
 										<IndexContentItem
 											title={`${name}${isFunc ? "()" : ""}`}
 											shrink={shrink}
@@ -234,7 +239,9 @@ const IndexContent: React.FC<IndexContentProps> = ({
 				<IndexContentSection sectionName={"Tutorials"}>
 					{contentItems?.filter(tutorial => query ? tutorial.title.match(new RegExp(query, "i")) : true).map((tutorial) => (
 
-						<Link href={`/${tutorial.link}`} key={tutorial.title}>
+						<Link href={`/${tutorial.link}`} key={tutorial.title} css={{
+							width: "100%",
+						}}>
 							<IndexContentItem
 								title={tutorial.title}
 								shrink={shrink}

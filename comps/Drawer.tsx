@@ -1,6 +1,5 @@
 import * as React from "react"
 import View, { ViewPropsAnd } from "comps/View"
-import Ctx from "lib/Ctx"
 import useClickOutside from "hooks/useClickOutside"
 
 type DrawerDir =
@@ -108,5 +107,7 @@ const Drawer = React.forwardRef<HTMLDivElement, ViewPropsAnd<DrawerProps>>(({
 	</>
 
 })
+
+Drawer.displayName = "Drawer"
 
 export default Drawer

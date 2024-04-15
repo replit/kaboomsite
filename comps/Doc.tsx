@@ -38,7 +38,7 @@ const TypeSig: React.FC<EntryProps> = ({ data }) => (
 					<DocCtx.Consumer>
 						{(ctx) => (
 							<span
-								css={{textDecoration: "underline", cursor: "pointer"}}
+								css={{textDecoration: "underline", textDecorationStyle: "dashed", cursor: "pointer"}}
 								onClick={() => ctx.typeref && ctx.typeref(data.typeName)}
 							>
 								{data.typeName}
